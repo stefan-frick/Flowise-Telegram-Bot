@@ -1,0 +1,41 @@
+services:
+  flowise:
+    image: flowiseai/flowise
+    container_name: flowise
+    ports:
+      - "4000:3000"
+    volumes:
+      # change this variable to the one you used
+      # with the example variables above the prompt would be:
+      # - telegram_extended_flowise:/root/.flowise
+      - [volume]:/root/.flowise
+    environment:
+      # - FLOWISE_USERNAME=L83r2#d1_2t?prka
+      - FLOWISE_USERNAME=[flowise_username]
+      # - FLOWISE_PASSWORD=,%oN*,s#neS7sV.GQISeXXQ4*fv4o8o?
+      - FLOWISE_PASSWORD=[flowise_password]
+    restart: unless-stopped
+
+  telegram-bot:
+    image: python:3.10-alpine
+    container_name: flowise-telegram-bot
+    depends_on:
+      - flowise
+    volumes:
+      - ./bot.py:/bot.py
+    environment:
+      # - TELEGRAM_TOKEN=123456789:AkboRksiTTkQkqklbirokaRfj
+      - TELEGRAM_TOKEN=[telegram_token]
+      # - TELEGRAM_USER_ID=811111111
+      - TELEGRAM_USER_ID=[telegram_user_id]
+      # - FLOWISE_URL=http://host.docker.internal:4000/api/v1/prediction/3cb9c5ec-...
+      - FLOWISE_URL=http://host.docker.internal:4000/api/v1/prediction/[chatflow_id]
+      # - FLOWISE_API_KEY=FOJnTNwjXhRu22JdZYh0_fp41bGlUhPT7mfNBShtaKs
+      - FLOWISE_API_KEY=[flowise_api_key]
+    command: sh -c "pip install pyTelegramBotAPI requests && python -u /bot.py"
+    restart: unless-stopped
+
+volumes:
+  # telegram_extended_flowise:
+  [volume]:
+    external: true
