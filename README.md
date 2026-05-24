@@ -4,9 +4,10 @@ This guide walks you through setting up a fully private, locally-hosted AI Teleg
 
 ### 📥 Alternative: Interactive Manual with Screenshots
 
-If you prefer a visual guide, which includes full step-by-step screenshots, you can download the interactive HTML version of this manual.
+If you prefer a visual guide, which includes full step-by-step screenshots, you can download an interactive HTML version of this manual here:
 
-**Download here:** [Flowise Telegram Bot Setup Guide.zip](https://drive.google.com/file/d/1FgEosxvNS0y4ZOqdAJnHrWQQC2A_mMmZ/view?usp=share_link)
+[Download Flowise Telegram Bot Setup Guide.zip](https://drive.google.com/file/d/1FgEosxvNS0y4ZOqdAJnHrWQQC2A_mMmZ/view?usp=share_link)
+
 
 **⚠️ Important Viewing Instructions:**
 
@@ -71,7 +72,7 @@ Create a new folder on your computer, e.g., `D:\progs\Flowise\telegram-flowise-p
 
 ### 1. docker-compose.yml
 
-Copy the `docker-compose.yml` from the repository into `[folder_path]`.
+Download the [`docker-compose.yml`](https://github.com/stefan-frick/Flowise-Telegram-Bot/blob/main/src/docker-compose.yml) from the repository `/src` into `[folder_path]`.
 
 **Replace the following variables in the file:**
 
@@ -81,7 +82,8 @@ Copy the `docker-compose.yml` from the repository into `[folder_path]`.
   
   b) `[flowise_username]` with your chosen username, ensure to store it safely
   
-  c) `[flowise_password]` with your chosen username, ensure to store it safely
+  c) `[flowise_password]` with your chosen password, ensure to store it safely
+  
 * `volumes` section:
   
   a) `[volume]` with the name of the `[volume]` you created in **Phase 2** (i.e. `telegram_extended_flowise`)
@@ -94,7 +96,7 @@ Copy the `docker-compose.yml` from the repository into `[folder_path]`.
 
 ### 2. bot.py
 
-Copy the `bot.py` from the repository into `[folder_path]`. 
+Download the [`bot.py`](https://github.com/stefan-frick/Flowise-Telegram-Bot/blob/main/src/bot.py) from the repository `/src` into `[folder_path]`. 
 
 **No variables need to be changed inside this file** — it reads everything from the YAML environment.
 
