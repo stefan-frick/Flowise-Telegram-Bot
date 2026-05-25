@@ -177,3 +177,16 @@ Before launching the bot, we need your two unique Telegram keys to connect and r
 *(Press `Ctrl + C` to exit the live log view.)*
 
 **Start Chatting:** Open Telegram, search for the bot username you created in Phase 5, and send it a message. You are now talking to your fully private, locally-hosted AI!
+
+---
+
+## PHASE 7: Shutdown & Restart Procedures
+
+To maintain the integrity of your setup and ensure continuous operation across reboots, follow these standard procedures:
+
+1. **Stop Docker Before Shutdown:** Before shutting down your computer, always ensure you stop the Docker engine and any running containers first to prevent potential data corruption.
+2. **Launch Services After a Restart:** After restarting your computer, you must verify that Docker Desktop is fully loaded, your containers are started, and you have manually started the respective Ollama model (e.g., by running `ollama run llama3.2:latest` in your terminal).
+
+*Note: If the Docker container is not active or the Ollama model is not running in the background, your chatbot will be unable to process requests and will throw an error in Telegram.*
+
+
