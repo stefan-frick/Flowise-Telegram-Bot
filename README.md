@@ -4,18 +4,17 @@ This guide walks you through setting up a fully private, locally-hosted AI Teleg
 
 ### 📥 Alternative: Interactive Manual with Screenshots
 
-If you prefer a visual guide, which includes full step-by-step screenshots, you can download an interactive HTML version of this manual here:
-
-[Download Flowise Telegram Bot Setup Guide](https://drive.google.com/drive/folders/1lrEi2DyZu1MANOd5jTPFtsKWEqpGpM5F)
-
+If you prefer a visual guide, which includes full step-by-step screenshots, you can download an interactive HTML version of this manual from the link below:
 
 **⚠️ Important Viewing Instructions:**
 
-1. Download the ZIP file from the link above.
+1. Download the ZIP file from the link below.
 2. **You must completely extract (unzip) the file** to a new folder on your computer.
 3. Open the HTML file **Flowise Telegram Bot Setup Guide.html** from inside the *extracted* folder using your web browser.
 
 *Note: If you attempt to open the HTML file directly from within the compressed ZIP archive without extracting it first, the images will not load correctly.*
+
+[Download Flowise Telegram Bot Setup Guide](https://drive.google.com/drive/folders/1lrEi2DyZu1MANOd5jTPFtsKWEqpGpM5F)
 
 ---
 
@@ -49,7 +48,7 @@ Gather these values before you start. You will use these exact bracketed placeho
    
 *Note: This is a lightweight model that runs smoothly on most systems. Larger models generally offer better performance for complex tasks. If your system has sufficient memory, you can use larger models — ensure they fit within your available VRAM or unified memory (on macOS). The first time you run this, Ollama will download the model files. Depending on your internet speed, this may take a few minutes.*
 
-5. **Verify it is Working:** Once the download finishes, you will see a `>>>` prompt in your terminal. Type `Hello` and press Enter. If the AI replies, your local model is working perfectly!
+5. **Verify it is Working:** Once the download finishes, you will see a `>>> Send a message` prompt in your terminal. Type `Hello` and press Enter. If the AI replies, your local model is working perfectly!
 
 ---
 
@@ -74,7 +73,7 @@ Create a new folder on your computer, e.g., `D:\progs\Flowise\telegram-flowise-p
 
 Download the [`docker-compose.yml`](https://github.com/stefan-frick/Flowise-Telegram-Bot/blob/main/src/docker-compose.yml) from the repository `/src` into `[folder_path]`.
 
-**Replace the following variables in the file:**
+**Open the folder in a code editor (e.g. Visual Studio Code) and replace the following variables in the file:**
 
 * `Flowise` section:
   
@@ -110,7 +109,7 @@ We need to start Flowise so we can generate your API Key and retrieve your Chatf
 `cd [folder_path]`
 2. Run this command to start the Flowise container:
 `docker compose up -d flowise`
-3. Ensure the container is up and running in Docker Desktop.
+3. Wait for some seconds until the status indicator of the docker contrainer turns green indicating that the container has booted up correctly. 
 4. Open your web browser and go to `http://localhost:4000`. Enter your `[flowise_username]` and `[flowise_password]` into the setup fields. *(For the administrator account, enter a username, email address, and password. These are stored locally in the Docker volume).*
 
 ### Create Your Local Agentflow:
