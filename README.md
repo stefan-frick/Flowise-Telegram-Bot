@@ -112,6 +112,8 @@ We need to start Flowise so we can generate your API Key and retrieve your Chatf
 3. Wait for some seconds until the status indicator of the docker contrainer turns green indicating that the container has booted up correctly. 
 4. Open your web browser and go to `http://localhost:4000`. Enter your `[flowise_username]` and `[flowise_password]` into the setup fields. *(For the administrator account, enter a username, email address, and password. These are stored locally in the Docker volume).*
 
+**Note**: If you see the error message `This site can’t be reached in the browser window`, then wait for some time and refresh the browser. It sometimes take a minute for Docker to fully start up a container. 
+
 ### Create Your Local Agentflow:
 
 1. In the left menu, click **Agentflows**.
@@ -120,7 +122,7 @@ We need to start Flowise so we can generate your API Key and retrieve your Chatf
 4. Click the **+** button. Drag and drop an **Agent** node into the workspace.
 5. Connect the Start node to the Agent node.
 6. Double-click the Agent node to open its settings and configure the model:
-* Select **ChatOllama**
+* Select the model **ChatOllama**
 * Set Base URL to `http://host.docker.internal:11434`
 * Enter the model name, e.g., `llama3.2:latest`
 * Leave all other parameters unchanged.
@@ -135,7 +137,7 @@ We need to start Flowise so we can generate your API Key and retrieve your Chatf
 2. Click **+ Create Key** to generate the API Key (`[flowise_api_key]`). Name it `telegram_bot`, select all **AGENTFLOWS** checkboxes, and click **Add**.
 3. Click **Copy** to copy the generated API Key. Open `docker-compose.yml` and replace `[flowise_api_key]` with this key.
 4. Return to your `Telegram Agent` agentflow. Click the **API Endpoint** button (`</>` icon).
-5. Open the Python tab and select the `telegram_bot` authorization key created earlier.
+5. Open the Python tab and select the `telegram_bot` authorization key created earlier from the drop-down box.
 6. Copy the `chatflow_id` — it is the last segment of the API URL after `http://localhost:4000/api/v1/prediction/`.
 7. Open `docker-compose.yml` and replace `[chatflow_id]` with the copied ID.
 
@@ -164,10 +166,13 @@ Before launching the bot, we need your two unique Telegram keys to connect and r
 ## PHASE 6: Finalize, Launch, and Monitor
 
 1. Open `docker-compose.yml` one last time. Verify all variables in the `telegram-bot` environment section are filled. Save the file.
-2. Run this command to flush the cache and apply your newest settings:
+2. Run the following command in the Docker terminal to flush the cache and apply your newest settings:
 `docker compose up -d --force-recreate`
+
+**Note**: Ensure that your working directiory is `[folder_path]` when excecuting this command. 
+
 3. Verify in Docker Desktop that no errors occurred, the service `flowise-telegram-bot` has been added, and all status indicators are green.
-4. To monitor your bot in real-time, run this log command:
+5. To monitor your bot in real-time, run this log command:
 `docker logs -f --tail 10 flowise-telegram-bot`
 *(Press `Ctrl + C` to exit the live log view.)*
 
