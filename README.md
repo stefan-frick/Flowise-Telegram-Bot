@@ -6,7 +6,7 @@ This guide walks you through setting up a fully private, locally-hosted AI Teleg
 
 If you prefer a visual guide, which includes full step-by-step screenshots, you can download an interactive HTML version of this manual here:
 
-[Download Flowise Telegram Bot Setup Guide.zip](https://drive.google.com/drive/folders/1lrEi2DyZu1MANOd5jTPFtsKWEqpGpM5F)
+[Download Flowise Telegram Bot Setup Guide](https://drive.google.com/drive/folders/1lrEi2DyZu1MANOd5jTPFtsKWEqpGpM5F)
 
 
 **⚠️ Important Viewing Instructions:**
